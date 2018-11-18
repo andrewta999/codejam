@@ -1,0 +1,31 @@
+#lab{
+	font-weight: bold;
+	text-transform: uppercase;
+	color: red;
+}
+
+body{
+	background: #000000;
+}
+
+form{
+	margin-left: 30px;
+	border: 2px solid #2AADFF;
+	padding: 20px; 
+}
+
+#logo{
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #FFA300;
+}
+
+.panel-body{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.panel-heading{
+	font-weight: bold;
+	text-transform: uppercase;
+}

@@ -1,0 +1,75 @@
+{% load static %}
+{% load widget_tweaks%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Amazon Review</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+  		<div class="container-fluid">
+    	<div class="navbar-header">
+      		<a class="navbar-brand" href="#" id="logo">Amazon Review</a>
+    	</div>
+    	<!-- <ul class="nav navbar-nav">
+    	      		<li><a href="#">Home</a></li>
+    	      		<li><a href="#">Page 1</a></li>
+    	      		<li><a href="#">Page 2</a></li>
+    	      		<li><a href="#">Page 3</a></li>
+    	</ul> -->
+  		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<div id="review">
+					<form action="" method="post">
+						{% csrf_token %}
+						{% for field in form.visible_fields %}
+    						<div class="form-group">
+      							<label for="tex" id="lab">Type reviews here</label>
+      							{% render_field field class="form-control" id="tex" %}
+      							{% if field.help_text %}
+        							<small class="form-text text-muted">{{ field.help_text }}</small>
+      							{% endif %}
+    						</div>
+  						{% endfor %}
+						<button type='submit' class="btn btn-success">Submit</button>
+						<button type="button" class="btn btn-danger" id="del">Delete</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="panel panel-success">
+  					<div class="panel-heading">Summary</div>
+  					<div class="panel-body">
+  						{% if result %}
+  							{{result }}
+  						{% else %}
+  							A summary will show up here
+  						{% endif %}
+  					</div>
+				</div>
+				<div class="panel panel-info">
+  					<div class="panel-heading">Summary</div>
+  					<div class="panel-body">
+  					</div>
+				</div>
+				<div class="panel panel-danger">
+  					<div class="panel-heading">Summary</div>
+  					<div class="panel-body">
+  					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
